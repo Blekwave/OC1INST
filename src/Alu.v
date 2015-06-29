@@ -29,12 +29,12 @@ module Alu (
             (op==3'b010 & a[31]==1 & b[31]==1 & aluout_reg[31]==0) ||
             (op==3'b110 & a[31]==0 & b[31]==1 & aluout_reg[31]==1) ||
             (op==3'b110 & a[31]==1 & b[31]==0 & aluout_reg[31]==0) ||
-            (op==3'b111 & (a[31] != b[31] & mul_reg[63:32] != 32'hFFFF_FFFF)) ||
-            (op==3'b111 & (a[31] == b[31] & mul_reg[63:32] != 32'h0000_0000)) begin
+            (op==3'b111 & (a[31] !== b[31] & mul_reg[63:32] !== 32'hFFFF_FFFF)) ||
+            (op==3'b111 & (a[31] === b[31] & mul_reg[63:32] !== 32'h0000_0000))) begin
             overflow_reg <= 1'b1;
         end else begin
             overflow_reg <= 1'b0;
-            if (op==3'b111) begin
+            if (op===3'b111) begin
                 aluout_reg <= mul_reg[31:0];
             end
         end

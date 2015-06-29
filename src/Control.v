@@ -15,7 +15,7 @@ module Control (
     output    [1:0]    selpctype,
     output    [2:0]    compop,
     output             unsig
-);e
+);
 
     wire    [12:0]    sel;
     reg     [20:0]    out;
