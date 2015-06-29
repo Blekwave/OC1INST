@@ -104,7 +104,11 @@ module Decode (
             id_ex_regdest <= (selregdest) ? if_id_instruc[15:11] : if_id_instruc[20:16];
             id_ex_writereg <= writereg;
             id_ex_writeov <= writeov;
-            id_ex_imedext <= $signed(if_id_instruc[15:0]);
+            if (if_id_instruc[31:26] == 6'b001010) begin
+                id_ex_imedext <= 32'h0000_0001;
+            else
+                id_ex_imedext <= $signed(if_id_instruc[15:0]);
+            end
         end
     end
 
