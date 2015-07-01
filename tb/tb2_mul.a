@@ -1,0 +1,22 @@
+nop
+nop
+addi $s0, $zero, 13
+addi $s1, $zero, 23
+addi $t0, $zero, 27000
+nop
+nop
+mul $s2, $s0, $s1
+sub $s0, $zero, $t0
+addi $s1, $zero, 25900
+nop
+nop
+nop
+mul $s2, $s0, $s1
+sub $s0, $zero, $t0
+addi $s1, $s1, 30000
+nop
+nop
+nop
+mul $s2, $s0, $s1
+nop
+nop

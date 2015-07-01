@@ -7,9 +7,15 @@ module Alu (
     output              overflow
 );
 
-    reg    [31:0]    aluout_reg;
-    reg    [63:0]    mul_reg;
-    reg              overflow_reg;
+    wire signed [31:0] signed_a;
+    wire signed [31:0] signed_b;
+
+    assign signed_a = a;
+    assign signed_b = b;
+
+    reg         [31:0]    aluout_reg;
+    reg signed  [63:0]    mul_reg;
+    reg                   overflow_reg;
     
     assign aluout = aluout_reg;
     assign overflow = overflow_reg;
@@ -22,7 +28,7 @@ module Alu (
             3'b100:  aluout_reg = ~(a | b);
             3'b101:  aluout_reg = a ^ b;
             3'b110:  aluout_reg = a - b;
-            3'b111:     mul_reg = a * b;
+            3'b111:     mul_reg = $signed(signed_a * signed_b);
             default: aluout_reg = 32'hXXXX_XXXX;
         endcase
         if ((op==3'b010 & a[31]==0 & b[31]==0 & aluout_reg[31]==1) ||

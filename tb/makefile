@@ -1,0 +1,5 @@
+testes:
+	iverilog ../src/Alu.v ../src/Comparator.v ../src/Control.v ../src/Decode.v ../src/Execute.v ../src/Fetch.v ../src/MemController.v ../src/Memory.v ../src/Mips.v ../src/Ram.v ../src/Registers.v ../src/Shifter.v ../src/Writeback.v ../src/top.v tb0.v -o tb0
+	iverilog ../src/Alu.v ../src/Comparator.v ../src/Control.v ../src/Decode.v ../src/Execute.v ../src/Fetch.v ../src/MemController.v ../src/Memory.v ../src/Mips.v ../src/Ram.v ../src/Registers.v ../src/Shifter.v ../src/Writeback.v ../src/top.v tb1.v -o tb1
+	iverilog ../src/Alu.v ../src/Comparator.v ../src/Control.v ../src/Decode.v ../src/Execute.v ../src/Fetch.v ../src/MemController.v ../src/Memory.v ../src/Mips.v ../src/Ram.v ../src/Registers.v ../src/Shifter.v ../src/Writeback.v ../src/top.v tb2.v -o tb2
+	iverilog ../src/Alu.v ../src/Comparator.v ../src/Control.v ../src/Decode.v ../src/Execute.v ../src/Fetch.v ../src/MemController.v ../src/Memory.v ../src/Mips.v ../src/Ram.v ../src/Registers.v ../src/Shifter.v ../src/Writeback.v ../src/top.v tb3.v -o tb3
