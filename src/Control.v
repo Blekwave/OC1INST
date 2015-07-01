@@ -56,15 +56,24 @@ module Control (
             12'b000101XXXXXX: out <= 21'bX10XX0X0XXXXXX1010000;
             12'b000110XXXXXX: out <= 21'bX10XX0X0XXXXXX0100000;
             12'b000111XXXXXX: out <= 21'bX10XX0X0XXXXXX0110000;
-            12'b001000XXXXXX: out <= 21'b10000100XX0100XXXXX00; // ADDI
+            12'b001000XXXXXX: out <= 21'b10000100XX0100XXXXX00;
             12'b001001XXXXXX: out <= 21'b10000111XX0100XXXXX00;
             12'b001100XXXXXX: out <= 21'b1000011XXX0000XXXXX00;
             12'b001101XXXXXX: out <= 21'b1000011XXX0010XXXXX00;
             12'b001110XXXXXX: out <= 21'b1000011XXX1010XXXXX00;
             12'b100011XXXXXX: out <= 21'b10001110XX0100XXXXX10;
             12'b101011XXXXXX: out <= 21'b100XX0X0XX0100XXXXX01;
-            12'b001010XXXXXX: out <= 21'b10000100XX0100XXXXX00; // INC (addi)
-            12'b000000101000: out <= 21'b00010100XX1110XXXXX00; // MUL [ALUOP 111] (add)
+            //////////////////////////////////
+            // Nova operação: INC           //
+            // out baseado na operação addi //
+            //////////////////////////////////
+            12'b001010XXXXXX: out <= 21'b10000100XX0100XXXXX00;
+            /////////////////////////////////
+            // Nova operação: MUL          //
+            // out baseado na operação add //
+            // AluOP = 111                 //
+            /////////////////////////////////
+            12'b000000101000: out <= 21'b00010100XX1110XXXXX00;
             default:          out <= 21'b000000000000000000000;
         endcase
     end

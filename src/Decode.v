@@ -104,6 +104,12 @@ module Decode (
             id_ex_regdest <= (selregdest) ? if_id_instruc[15:11] : if_id_instruc[20:16];
             id_ex_writereg <= writereg;
             id_ex_writeov <= writeov;
+            /////////////////////////////////////////////////////////////////////
+            // Caso especial da instrução INC: define o valor a ser somado co- //
+            // mo 1. Visto que o resto dos sinais de controle da instrução são //
+            // idênticos à instrução ADDI, isso gera o comportamento esperado. //
+            // (001010 é o OPCode da instrução INC)                            //
+            /////////////////////////////////////////////////////////////////////
             if (if_id_instruc[31:26] === 6'b001010) begin
                 id_ex_imedext <= 32'h0000_0001;
             end else begin
