@@ -1,0 +1,13 @@
+        nop
+        nop
+        addi $t0, $zero, 7
+        addi $t1, $zero, 0
+        addi $s0, $zero, 1
+        nop
+        nop
+loop:   inc $t1, $t1
+        nop
+        nop
+        nop
+        mul $s0, $s0, $t1
+        bne $t0, $t1, loop
